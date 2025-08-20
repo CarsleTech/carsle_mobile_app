@@ -1,12 +1,15 @@
 import { Link, Tabs } from "expo-router";
 import React from "react";
-import { Platform, Text, View } from "react-native";
+import { Platform, StyleSheet, Text, View } from "react-native";
 
 import { HapticTab } from "@/components/HapticTab";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Ionicons } from "@expo/vector-icons";
 import { SettingsIcon } from "lucide-react-native";
+
+
+
 
 export default function TabLayout() {
   return (
@@ -17,7 +20,7 @@ export default function TabLayout() {
           tabBarInactiveTintColor: "#31343873", // Light gray for inactive tabs
           headerShown: true,
           headerStyle: {
-            backgroundColor: "#5B5AF1", // Dark background
+            backgroundColor: "white", // Dark background
             // borderBottomWidth: 0.5,
             // borderBottomColor: "#31343873",
             elevation: 0,
@@ -55,36 +58,21 @@ export default function TabLayout() {
           options={{
             title: "Calls",
             headerLeft: () => (
-              <View style={{ marginLeft: 16 }}>
+              <View style={{ marginLeft: 16 , display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <View style={styles.avatarContainer}>
+                  <View style={styles.avatar}>
+                    <Text style={styles.avatarText}>E</Text>
+                  </View>
+                </View>
                 <Text
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "600",
-                    color: "#3134387373", // Light gray text
-                  }}
+                  style={styles.headerTitle}
                 >
-                  Carsle
+                  Calls
                 </Text>
               </View>
             ),
             headerTitle: () => (
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Link href={"/(tabs)/notifications"}>
-                  <View
-                    style={{
-                      width: 32,
-                      height: 32,
-                      borderRadius: 16,
-                      backgroundColor: "#5B5AF1", // Bright yellow background
-                      justifyContent: "center",
-                      alignItems: "center",
-                      marginRight: 8,
-                    }}
-                  >
-                    <Ionicons name="home" size={18} color="#030712" />
-                  </View>
-                </Link>
-              </View>
+              <></>
             ),
             headerRight: () => (
               <View
@@ -146,36 +134,21 @@ export default function TabLayout() {
           options={{
             title: "Explore",
             headerLeft: () => (
-              <View style={{ marginLeft: 16 }}>
+              <View style={{ marginLeft: 16 , display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <View style={styles.avatarContainer}>
+                  <View style={styles.avatar}>
+                    <Text style={styles.avatarText}>E</Text>
+                  </View>
+                </View>
                 <Text
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "600",
-                    color: "#31343873", // Light gray text
-                  }}
+                  style={styles.headerTitle}
                 >
-                  Carsle
+                  Explore
                 </Text>
               </View>
             ),
             headerTitle: () => (
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Link href={"/(tabs)/notifications"}>
-                  <View
-                    style={{
-                      width: 32,
-                      height: 32,
-                      borderRadius: 16,
-                      backgroundColor: "#5B5AF1", // Bright yellow background
-                      justifyContent: "center",
-                      alignItems: "center",
-                      marginRight: 8,
-                    }}
-                  >
-                    <Ionicons name="home" size={18} color="#030712" />
-                  </View>
-                </Link>
-              </View>
+              <></>
             ),
             headerRight: () => (
               <View
@@ -325,38 +298,23 @@ export default function TabLayout() {
         <Tabs.Screen
           name="schedule"
           options={{
-            title: "Schedule",
+            title: "Schedules",
             headerLeft: () => (
-              <View style={{ marginLeft: 16 }}>
+              <View style={{ marginLeft: 16 , display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <View style={styles.avatarContainer}>
+                  <View style={styles.avatar}>
+                    <Text style={styles.avatarText}>E</Text>
+                  </View>
+                </View>
                 <Text
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "600",
-                    color: "#31343873", // Light gray text
-                  }}
+                  style={styles.headerTitle}
                 >
-                  Carsle
+                  Schedules
                 </Text>
               </View>
             ),
             headerTitle: () => (
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Link href={"/(tabs)/notifications"}>
-                  <View
-                    style={{
-                      width: 32,
-                      height: 32,
-                      borderRadius: 16,
-                      backgroundColor: "#5B5AF1", // Bright yellow background
-                      justifyContent: "center",
-                      alignItems: "center",
-                      marginRight: 8,
-                    }}
-                  >
-                    <Ionicons name="calendar" size={18} color="#030712" />
-                  </View>
-                </Link>
-              </View>
+              <></>
             ),
             headerRight: () => (
               <View
@@ -409,36 +367,21 @@ export default function TabLayout() {
           options={{
             title: "Messages",
             headerLeft: () => (
-              <View style={{ marginLeft: 16 }}>
+              <View style={{ marginLeft: 16 , display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <View style={styles.avatarContainer}>
+                  <View style={styles.avatar}>
+                    <Text style={styles.avatarText}>E</Text>
+                  </View>
+                </View>
                 <Text
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "600",
-                    color: "#31343873", // Light gray text
-                  }}
+                  style={styles.headerTitle}
                 >
-                  Carsle
+                  Messages
                 </Text>
               </View>
             ),
             headerTitle: () => (
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Link href={"/(tabs)/notifications"}>
-                  <View
-                    style={{
-                      width: 32,
-                      height: 32,
-                      borderRadius: 16,
-                      backgroundColor: "#5B5AF1", // Bright yellow background
-                      justifyContent: "center",
-                      alignItems: "center",
-                      marginRight: 8,
-                    }}
-                  >
-                    <Ionicons name="chatbubble" size={18} color="#030712" />
-                  </View>
-                </Link>
-              </View>
+              <></>
             ),
             headerRight: () => (
               <View
@@ -490,36 +433,21 @@ export default function TabLayout() {
           options={{
             title: "Wallet",
             headerLeft: () => (
-              <View style={{ marginLeft: 16 }}>
+              <View style={{ marginLeft: 16 , display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <View style={styles.avatarContainer}>
+                  <View style={styles.avatar}>
+                    <Text style={styles.avatarText}>E</Text>
+                  </View>
+                </View>
                 <Text
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "600",
-                    color: "#31343873", // Light gray text
-                  }}
+                  style={styles.headerTitle}
                 >
-                  Carsle
+                  Wallet
                 </Text>
               </View>
             ),
             headerTitle: () => (
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Link href={"/(tabs)/notifications"}>
-                  <View
-                    style={{
-                      width: 32,
-                      height: 32,
-                      borderRadius: 16,
-                      backgroundColor: "#5B5AF1", // Bright yellow background
-                      justifyContent: "center",
-                      alignItems: "center",
-                      marginRight: 8,
-                    }}
-                  >
-                    <Ionicons name="wallet" size={18} color="#030712" />
-                  </View>
-                </Link>
-              </View>
+              <></>
             ),
             headerRight: () => (
               <View
@@ -662,3 +590,36 @@ export default function TabLayout() {
     </ProtectedRoute>
   );
 }
+
+
+const styles = StyleSheet.create({
+  tabBarIcon: {
+    alignItems: "center",
+    backgroundColor: "transparent",
+    padding: 4,
+    borderRadius: 8,
+    marginBottom: 2,
+  },
+   avatarContainer: {
+    position: 'relative',
+    marginRight: 12,
+  },
+  avatar: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#5B5AF1', // Bright yellow background
+  },
+  avatarText: {
+    fontWeight: '700',
+    fontSize: 14,
+    color: 'white',
+  },
+  headerTitle: {
+    fontWeight: '700',
+    fontSize: 20,
+    color: '#5B5AF1',
+  },
+});

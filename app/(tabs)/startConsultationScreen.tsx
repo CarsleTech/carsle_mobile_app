@@ -60,7 +60,7 @@ const StartConsultationScreen: React.FC = () => {
 
   // Helper function to get consistent colors - matching Explore theme
   const getRandomColor = (index: number): string => {
-    const colors = ['#030712', '#FCDF03', '#E5E7EB', '#6B7280'];
+    const colors = ['#030712', '#5B5AF1', '#E5E7EB', '#6B7280'];
     return colors[index % colors.length];
   };
 
@@ -158,7 +158,7 @@ const StartConsultationScreen: React.FC = () => {
           <View style={[styles.avatar, { backgroundColor: item.bgColor }]}>
             <Text style={[
               styles.avatarText,
-              { color: item.bgColor === '#FCDF03' ? '#030712' : '#E5E7EB' }
+              { color: item.bgColor === '#5B5AF1' ? '#030712' : '#E5E7EB' }
             ]}>
               {item.initials}
             </Text>
@@ -181,7 +181,7 @@ const StartConsultationScreen: React.FC = () => {
           
           <View style={styles.consultantMeta}>
             <View style={styles.inlineIconText}>
-              <Star size={12} color="#FCDF03" fill="#FCDF03" />
+              <Star size={12} color="#5B5AF1" fill="#5B5AF1" />
               <Text style={styles.ratingText}>{item.rating}</Text>
               <Text style={styles.reviewsText}>({item.reviews})</Text>
             </View>
@@ -199,7 +199,7 @@ const StartConsultationScreen: React.FC = () => {
       
       <View style={styles.selectIndicator}>
         {selectedConsultant === item.id && (
-          <CheckCircle size={24} color="#FCDF03" fill="#FCDF03" />
+          <CheckCircle size={24} color="#5B5AF1" fill="#5B5AF1" />
         )}
       </View>
     </TouchableOpacity>
@@ -216,7 +216,7 @@ const StartConsultationScreen: React.FC = () => {
           <View style={{ width: 24 }} />
         </View>
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#FCDF03" />
+          <ActivityIndicator size="large" color="#5B5AF1" />
           <Text style={styles.loadingText}>Loading consultants...</Text>
         </View>
       </SafeAreaView>
@@ -426,7 +426,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   retryButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 12,
@@ -457,7 +457,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   selectedConsultant: {
-    borderColor: '#FCDF03',
+    borderColor: '#5B5AF1',
     backgroundColor: '#1A1B0F',
   },
   consultantInfo: {
@@ -485,7 +485,7 @@ const styles = StyleSheet.create({
   onlineDot: {
     width: 16,
     height: 16,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderRadius: 8,
     borderWidth: 2,
     borderColor: '#030712',
@@ -508,7 +508,7 @@ const styles = StyleSheet.create({
     color: '#E5E7EB',
   },
   verifiedBadge: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderRadius: 8,
     width: 16,
     height: 16,
@@ -603,7 +603,7 @@ const styles = StyleSheet.create({
     borderTopColor: '#374151',
   },
   startButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     paddingVertical: 16,
     borderRadius: 12,
     alignItems: 'center',

@@ -93,7 +93,7 @@ const MessagesScreen: React.FC = () => {
 
   // Helper function to get consistent colors
   const getAvatarColor = (index: number): string => {
-    const colors = ['#030712', '#FCDF03', '#E5E7EB', '#6B7280'];
+    const colors = ['#030712', '#5B5AF1', '#E5E7EB', '#6B7280'];
     return colors[index % colors.length];
   };
 
@@ -201,7 +201,7 @@ const MessagesScreen: React.FC = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'IN_PROGRESS':
-        return '#FCDF03';
+        return '#5B5AF1';
       case 'COMPLETED':
         return '#6B7280';
       case 'PENDING':
@@ -248,7 +248,7 @@ const MessagesScreen: React.FC = () => {
             ) : (
               <Text style={[
                 styles.avatarText,
-                { color: avatarColor === '#FCDF03' ? '#030712' : '#E5E7EB' }
+                { color: avatarColor === '#5B5AF1' ? '#030712' : '#E5E7EB' }
               ]}>
                 {initials}
               </Text>
@@ -335,7 +335,7 @@ const MessagesScreen: React.FC = () => {
           <View style={{ width: 28 }} />
         </View>
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#FCDF03" />
+          <ActivityIndicator size="large" color="#5B5AF1" />
           <Text style={styles.loadingText}>Loading conversations...</Text>
         </View>
       </SafeAreaView>
@@ -376,8 +376,8 @@ const MessagesScreen: React.FC = () => {
           <RefreshControl 
             refreshing={refreshing} 
             onRefresh={onRefresh}
-            tintColor="#FCDF03"
-            colors={['#FCDF03']}
+            tintColor="#5B5AF1"
+            colors={['#5B5AF1']}
           />
         }
         showsVerticalScrollIndicator={false}
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
     color: '#E5E7EB',
   },
   addButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     width: 36,
     height: 36,
     borderRadius: 18,
@@ -465,7 +465,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   activeTab: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
   },
   tabText: {
     fontSize: 14,
@@ -495,7 +495,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   unreadConsultation: {
-    borderColor: '#FCDF03',
+    borderColor: '#5B5AF1',
     backgroundColor: '#1A1B0F',
   },
   avatarContainer: {
@@ -518,7 +518,7 @@ const styles = StyleSheet.create({
   onlineIndicator: {
     width: 16,
     height: 16,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderRadius: 8,
     borderWidth: 2,
     borderColor: '#030712',
@@ -548,7 +548,7 @@ const styles = StyleSheet.create({
   },
   consultationTopic: {
     fontSize: 14,
-    color: '#FCDF03',
+    color: '#5B5AF1',
     marginBottom: 4,
     fontWeight: '500',
   },
@@ -612,7 +612,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   startButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 12,

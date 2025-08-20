@@ -1,6 +1,6 @@
+import { Check, X } from 'lucide-react-native';
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
-import { Bell, X, Check } from 'lucide-react-native';
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const NotificationsUI = () => {
   const notifications = [
@@ -25,7 +25,7 @@ const NotificationsUI = () => {
       message: "Marcus Johnson sent you a message about your business plan review",
       time: "2h ago",
       avatar: "MJ",
-      avatarColor: "#FCDF03", // Tailwind's bg-indigo-600
+      avatarColor: "#5B5AF1", // Tailwind's bg-indigo-600
       isUnread: true,
       actions: [
         { label: "Open Message", type: "primary" }
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
   unreadDot: {
     width: 8,
     height: 8,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderRadius: 4
   },
   message: {
@@ -292,7 +292,7 @@ const styles = StyleSheet.create({
     marginRight: 8
   },
   primaryButton: {
-    backgroundColor: '#FCDF03'
+    backgroundColor: '#5B5AF1'
   },
   secondaryButton: {
     backgroundColor: '#F3F4F6'

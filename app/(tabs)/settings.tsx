@@ -2,31 +2,31 @@ import { useAuth } from '@/contexts/AuthContext';
 import axios from 'axios';
 import { router } from 'expo-router';
 import {
-    ArrowLeft,
-    Bell,
-    CheckCircle,
-    Clock,
-    DollarSign,
-    Edit,
-    LogOut,
-    Mail,
-    Phone,
-    Save,
-    Shield,
-    User,
-    X,
+  ArrowLeft,
+  Bell,
+  CheckCircle,
+  Clock,
+  DollarSign,
+  Edit,
+  LogOut,
+  Mail,
+  Phone,
+  Save,
+  Shield,
+  User,
+  X,
 } from 'lucide-react-native';
 import React, { useEffect, useState } from 'react';
 import {
-    ActivityIndicator,
-    Alert,
-    ScrollView,
-    StyleSheet,
-    Switch,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  Alert,
+  ScrollView,
+  StyleSheet,
+  Switch,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 interface SettingsProps {
@@ -202,7 +202,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#FCDF03" />
+        <ActivityIndicator size="large" color="#5B5AF1" />
         <Text style={styles.loadingText}>Loading settings...</Text>
       </View>
     );
@@ -273,7 +273,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
               <View style={styles.nameRow}>
                 <Text style={styles.userName}>{user.fullName}</Text>
                 {user.verified && (
-                  <CheckCircle size={20} color="#FCDF03" fill="#FCDF03" />
+                  <CheckCircle size={20} color="#5B5AF1" fill="#5B5AF1" />
                 )}
               </View>
               <Text style={styles.username}>@{user.username}</Text>
@@ -425,7 +425,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
               <Switch
                 value={formData.isAvailable}
                 onValueChange={(value) => setFormData({ ...formData, isAvailable: value })}
-                trackColor={{ false: '#374151', true: '#FCDF03' }}
+                trackColor={{ false: '#374151', true: '#5B5AF1' }}
                 thumbColor={formData.isAvailable ? '#030712' : '#6B7280'}
                 disabled={!editing}
               />
@@ -445,7 +445,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
               <Switch
                 value={notificationsEnabled}
                 onValueChange={setNotificationsEnabled}
-                trackColor={{ false: '#374151', true: '#FCDF03' }}
+                trackColor={{ false: '#374151', true: '#5B5AF1' }}
                 thumbColor={notificationsEnabled ? '#030712' : '#6B7280'}
               />
             </View>
@@ -459,7 +459,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
               <Switch
                 value={emailNotifications}
                 onValueChange={setEmailNotifications}
-                trackColor={{ false: '#374151', true: '#FCDF03' }}
+                trackColor={{ false: '#374151', true: '#5B5AF1' }}
                 thumbColor={emailNotifications ? '#030712' : '#6B7280'}
               />
             </View>
@@ -556,7 +556,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
@@ -599,7 +599,7 @@ const styles = StyleSheet.create({
   },
   balance: {
     fontSize: 14,
-    color: '#FCDF03',
+    color: '#5B5AF1',
     fontWeight: '600',
   },
   section: {
@@ -693,7 +693,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 16,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderRadius: 12,
     gap: 8,
   },
@@ -732,7 +732,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   retryButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 8,

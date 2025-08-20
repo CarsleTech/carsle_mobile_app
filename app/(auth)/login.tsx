@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#FCDF03', // Bright yellow background
+    backgroundColor: '#5B5AF1', // Bright yellow background
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 12,
@@ -268,12 +268,12 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   forgotPasswordText: {
-    color: '#FCDF03', // Yellow link color
+    color: '#5B5AF1', // Yellow link color
     fontSize: 14,
     fontWeight: '600',
   },
   button: {
-    backgroundColor: '#FCDF03', // Bright yellow background
+    backgroundColor: '#5B5AF1', // Bright yellow background
     paddingVertical: 16,
     borderRadius: 12,
     alignItems: 'center',
@@ -305,7 +305,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   linkText: {
-    color: '#FCDF03', // Yellow link color
+    color: '#5B5AF1', // Yellow link color
     fontSize: 16,
     fontWeight: '600',
   },

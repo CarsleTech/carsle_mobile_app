@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { 
-  StyleSheet, 
-  Text, 
-  View, 
-  TouchableOpacity, 
-  StatusBar, 
-  TextInput 
-} from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import React, { useState } from 'react';
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from 'react-native';
 import { RootStackParamList } from '../../App';
 
 type AuthScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Auth'>;
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 80,
     height: 80,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderRadius: 40,
     justifyContent: 'center',
     alignItems: 'center',
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     borderBottomColor: 'transparent',
   },
   activeTab: {
-    borderBottomColor: '#FCDF03',
+    borderBottomColor: '#5B5AF1',
   },
   tabText: {
     fontSize: 16,
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     color: '#9CA3AF',
   },
   activeTabText: {
-    color: '#FCDF03',
+    color: '#5B5AF1',
   },
   formContainer: {
     flex: 1,
@@ -209,11 +209,11 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   forgotPasswordText: {
-    color: '#FCDF03',
+    color: '#5B5AF1',
     fontSize: 14,
   },
   submitButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderRadius: 8,
     paddingVertical: 16,
     alignItems: 'center',

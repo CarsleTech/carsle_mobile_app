@@ -240,7 +240,7 @@ export default function WalletScreen() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#FCDF03" />
+          <ActivityIndicator size="large" color="#5B5AF1" />
           <Text style={styles.loadingText}>Loading wallet...</Text>
         </View>
       </SafeAreaView>
@@ -256,8 +256,8 @@ export default function WalletScreen() {
           <RefreshControl 
             refreshing={refreshing} 
             onRefresh={onRefresh}
-            tintColor="#FCDF03"
-            colors={["#FCDF03"]}
+            tintColor="#5B5AF1"
+            colors={["#5B5AF1"]}
             progressBackgroundColor="#030712"
           />
         }
@@ -408,10 +408,10 @@ const styles = StyleSheet.create({
   loadingText: {
     marginTop: 16,
     fontSize: 16,
-    color: '#FCDF03',
+    color: '#5B5AF1',
   },
   balanceCard: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     marginHorizontal: 20,
     borderRadius: 16,
     padding: 24,
@@ -461,7 +461,7 @@ const styles = StyleSheet.create({
   addFundsText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#FCDF03',
+    color: '#5B5AF1',
   },
   withdrawButton: {
     flex: 1,
@@ -503,14 +503,14 @@ const styles = StyleSheet.create({
   },
   activeTab: {
     borderBottomWidth: 2,
-    borderBottomColor: '#FCDF03',
+    borderBottomColor: '#5B5AF1',
   },
   tabText: {
     fontSize: 16,
     color: '#6B7280',
   },
   activeTabText: {
-    color: '#FCDF03',
+    color: '#5B5AF1',
     fontWeight: '600',
   },
   section: {
@@ -529,7 +529,7 @@ const styles = StyleSheet.create({
   },
   viewAllText: {
     fontSize: 14,
-    color: '#FCDF03',
+    color: '#5B5AF1',
     fontWeight: '500',
   },
   transactionsList: {
@@ -601,7 +601,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   refreshEmptyButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     paddingHorizontal: 24,
     paddingVertical: 10,
     borderRadius: 8,
@@ -630,7 +630,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   referralButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 8,

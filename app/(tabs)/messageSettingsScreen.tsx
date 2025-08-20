@@ -1,16 +1,16 @@
+import { useNavigation } from '@react-navigation/native';
+import { ArrowLeft, Bell, CheckCheck, Download, Eye, Radio, Trash2, Volume2 } from 'lucide-react-native';
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  SafeAreaView,
-  Switch,
   Alert,
+  SafeAreaView,
   ScrollView,
+  StyleSheet,
+  Switch,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import { ArrowLeft, Bell, Volume2, CheckCheck, Radio, Eye, Download, Trash2 } from 'lucide-react-native';
-import { useNavigation } from '@react-navigation/native';
 
 const MessageSettingsScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -67,7 +67,7 @@ const MessageSettingsScreen: React.FC = () => {
     <View style={styles.settingItem}>
       <View style={styles.settingInfo}>
         <View style={styles.iconContainer}>
-          <Icon size={20} color="#FCDF03" />
+          <Icon size={20} color="#5B5AF1" />
         </View>
         <View style={styles.settingText}>
           <Text style={styles.settingTitle}>{title}</Text>
@@ -77,7 +77,7 @@ const MessageSettingsScreen: React.FC = () => {
       <Switch
         value={value}
         onValueChange={onValueChange}
-        trackColor={{ false: '#374151', true: '#FCDF03' }}
+        trackColor={{ false: '#374151', true: '#5B5AF1' }}
         thumbColor={value ? '#030712' : '#E5E7EB'}
         ios_backgroundColor="#374151"
       />
@@ -100,7 +100,7 @@ const MessageSettingsScreen: React.FC = () => {
     <TouchableOpacity style={styles.actionItem} onPress={onPress}>
       <View style={styles.settingInfo}>
         <View style={styles.iconContainer}>
-          <Icon size={20} color={danger ? '#EF4444' : '#FCDF03'} />
+          <Icon size={20} color={danger ? '#EF4444' : '#5B5AF1'} />
         </View>
         <View style={styles.settingText}>
           <Text style={[styles.settingTitle, danger && styles.dangerText]}>{title}</Text>

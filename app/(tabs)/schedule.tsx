@@ -718,7 +718,7 @@ const styles = StyleSheet.create({
   header: {
     paddingHorizontal: 16,
     paddingVertical: 24,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     marginBottom: 16,
     borderColor: '#030712',
     borderWidth: 1,
@@ -755,7 +755,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   section: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     marginHorizontal: 16,
     marginBottom: 16,
     borderRadius: 8,
@@ -803,7 +803,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   retryButtonText: {
-    color: '#FCDF03',
+    color: '#5B5AF1',
     fontWeight: '500',
   },
   consultantsList: {
@@ -818,7 +818,7 @@ const styles = StyleSheet.create({
   },
   selectedConsultantCard: {
     borderColor: '#030712',
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderWidth: 2,
   },
   consultantInfo: {
@@ -834,7 +834,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   avatarText: {
-    color: '#FCDF03',
+    color: '#5B5AF1',
     fontWeight: '600',
     fontSize: 16,
   },
@@ -882,7 +882,7 @@ const styles = StyleSheet.create({
   addButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: 6,
@@ -909,7 +909,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   activeViewModeButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderColor: '#030712',
     borderWidth: 1,
     shadowColor: '#000',

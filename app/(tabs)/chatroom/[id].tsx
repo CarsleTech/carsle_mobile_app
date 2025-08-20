@@ -333,7 +333,7 @@ const ChatRoomScreen: React.FC = () => {
                 <Ionicons
                   name={item.readAt ? "checkmark-done" : "checkmark"}
                   size={14}
-                  color={item.readAt ? "#FCDF03" : "#666"}
+                  color={item.readAt ? "#5B5AF1" : "#666"}
                   style={styles.readIndicator}
                 />
               )}
@@ -347,7 +347,7 @@ const ChatRoomScreen: React.FC = () => {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#FCDF03" />
+        <ActivityIndicator size="large" color="#5B5AF1" />
       </View>
     );
   }
@@ -356,7 +356,7 @@ const ChatRoomScreen: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="#FCDF03" />
+          <Ionicons name="arrow-back" size={24} color="#5B5AF1" />
         </TouchableOpacity>
         
         <View style={styles.headerInfo}>
@@ -450,7 +450,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#FCDF03',
+    color: '#5B5AF1',
   },
   headerSubtitle: {
     fontSize: 12,
@@ -482,7 +482,7 @@ const styles = StyleSheet.create({
   },
   systemMessageText: {
     fontSize: 14,
-    color: '#FCDF03',
+    color: '#5B5AF1',
     backgroundColor: '#333',
     paddingHorizontal: 12,
     paddingVertical: 6,
@@ -505,7 +505,7 @@ const styles = StyleSheet.create({
   },
   senderName: {
     fontSize: 12,
-    color: '#FCDF03',
+    color: '#5B5AF1',
     marginBottom: 4,
     marginLeft: 4,
     fontWeight: '500',
@@ -517,7 +517,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   ownMessageBubble: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderBottomRightRadius: 4,
   },
   otherMessageBubble: {
@@ -581,7 +581,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -596,7 +596,7 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 18,
-    color: '#FCDF03',
+    color: '#5B5AF1',
     marginTop: 16,
     fontWeight: '500',
   },

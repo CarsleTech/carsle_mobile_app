@@ -4,13 +4,13 @@ import { router } from 'expo-router';
 import { Clock, DollarSign, Search, Star, Users } from 'lucide-react-native';
 import React, { useEffect, useState } from 'react';
 import {
-    ActivityIndicator,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 const Explore = () => {
@@ -75,7 +75,7 @@ const Explore = () => {
 
   // Helper function to get consistent colors - using custom color palette
   const getRandomColor = (index) => {
-    const colors = ['#030712', '#FCDF03', '#E5E7EB', '#030712', '#FCDF03', '#E5E7EB'];
+    const colors = ['#030712', '#5B5AF1', '#E5E7EB', '#030712', '#5B5AF1', '#E5E7EB'];
     return colors[index % colors.length];
   };
 
@@ -107,7 +107,7 @@ const Explore = () => {
           <View style={[styles.initials, { backgroundColor: expert.bgColor }]}>
             <Text style={[
               styles.initialsText,
-              { color: expert.bgColor === '#FCDF03' ? '#030712' : '#FFFFFF' }
+              { color: expert.bgColor === '#5B5AF1' ? '#030712' : '#FFFFFF' }
             ]}>
               {expert.initials}
             </Text>
@@ -128,7 +128,7 @@ const Explore = () => {
           <View style={styles.infoRow}>
             {expert.rating > 0 && (
               <View style={styles.inlineIconText}>
-                <Star size={12} color="#FCDF03" fill="#FCDF03" />
+                <Star size={12} color="#5B5AF1" fill="#5B5AF1" />
                 <Text style={styles.rating}>{expert.rating.toFixed(1)}</Text>
                 <Text style={styles.reviews}>({expert.reviews})</Text>
               </View>
@@ -159,7 +159,7 @@ const Explore = () => {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#FCDF03" />
+        <ActivityIndicator size="large" color="#5B5AF1" />
         <Text style={styles.loadingText}>Loading experts...</Text>
       </View>
     );
@@ -299,7 +299,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   activeCategory: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
   },
   inactiveCategory: {
     backgroundColor: '#FFFFFF',
@@ -358,7 +358,7 @@ const styles = StyleSheet.create({
   onlineDot: {
     width: 16,
     height: 16,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderRadius: 8,
     borderWidth: 2,
     borderColor: '#FFFFFF',
@@ -378,7 +378,7 @@ const styles = StyleSheet.create({
     color: '#E5E7EB',
   },
   verifiedBadge: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderRadius: 8,
     width: 16,
     height: 16,
@@ -438,7 +438,7 @@ const styles = StyleSheet.create({
     borderRadius: 9999,
     borderColor: '#030712',
     borderWidth: 1,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
   },
   followText: {
     fontSize: 12,
@@ -472,7 +472,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   retryButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 8,

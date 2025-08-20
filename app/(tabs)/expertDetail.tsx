@@ -119,7 +119,7 @@ const ExpertDetail = ({ route, navigation }) => {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#FCDF03" />
+        <ActivityIndicator size="large" color="#5B5AF1" />
         <Text style={styles.loadingText}>Loading expert details...</Text>
       </View>
     );
@@ -162,7 +162,7 @@ const ExpertDetail = ({ route, navigation }) => {
               <View style={styles.nameRow}>
                 <Text style={styles.expertName}>{expert.fullName}</Text>
                 {expert.verified && (
-                  <CheckCircle size={20} color="#FCDF03" fill="#FCDF03" />
+                  <CheckCircle size={20} color="#5B5AF1" fill="#5B5AF1" />
                 )}
               </View>
               <Text style={styles.username}>@{expert.username}</Text>
@@ -190,7 +190,7 @@ const ExpertDetail = ({ route, navigation }) => {
           {/* Stats Row */}
           <View style={styles.statsRow}>
             <View style={styles.statItem}>
-              <Star size={16} color="#FCDF03" fill="#FCDF03" />
+              <Star size={16} color="#5B5AF1" fill="#5B5AF1" />
               <Text style={styles.statValue}>
                 {expert.rating > 0 ? expert.rating.toFixed(1) : 'N/A'}
               </Text>
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 3,
@@ -525,7 +525,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   callButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
   },
   messageButton: {
     backgroundColor: '#374151',
@@ -569,7 +569,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   retryButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 8,

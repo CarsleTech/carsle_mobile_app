@@ -1,13 +1,13 @@
 // components/SplashScreen.tsx
+import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useRef } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
   Animated,
   Dimensions,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get('window');
 
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   },
   loadingProgress: {
     height: '100%',
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderRadius: 2,
   },
 });

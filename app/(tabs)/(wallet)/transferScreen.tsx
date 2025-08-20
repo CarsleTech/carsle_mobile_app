@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  SafeAreaView,
-  Alert,
-  ActivityIndicator,
-  ScrollView,
-} from 'react-native';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { useAuth } from '@/contexts/AuthContext';
 import { router } from 'expo-router';
+import React, { useState } from 'react';
+import {
+  ActivityIndicator,
+  Alert,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 export default function TransferScreen() {
   const { user } = useAuth();
@@ -69,7 +69,7 @@ export default function TransferScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
-          <IconSymbol name="chevron.left" size={24} color="#FCDF03" />
+          <IconSymbol name="chevron.left" size={24} color="#5B5AF1" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Transfer Money</Text>
         <View style={{ width: 24 }} />
@@ -169,7 +169,7 @@ const sharedStyles = StyleSheet.create({
   loadingText: {
     marginTop: 16,
     fontSize: 16,
-    color: '#FCDF03',
+    color: '#5B5AF1',
   },
   balanceInfo: {
     backgroundColor: '#1F2937',
@@ -186,7 +186,7 @@ const sharedStyles = StyleSheet.create({
   balanceAmount: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#FCDF03',
+    color: '#5B5AF1',
   },
   section: {
     marginBottom: 24,
@@ -218,7 +218,7 @@ const sharedStyles = StyleSheet.create({
   currencySymbol: {
     fontSize: 20,
     fontWeight: '600',
-    color: '#FCDF03',
+    color: '#5B5AF1',
     marginRight: 8,
   },
   amountText: {
@@ -271,8 +271,8 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(252, 223, 3, 0.2)',
   },
   selectedQuickAmount: {
-    backgroundColor: '#FCDF03',
-    borderColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
+    borderColor: '#5B5AF1',
   },
   quickAmountText: {
     fontSize: 14,
@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(252, 223, 3, 0.2)',
   },
   selectedMethod: {
-    borderColor: '#FCDF03',
+    borderColor: '#5B5AF1',
     backgroundColor: 'rgba(252, 223, 3, 0.1)',
   },
   methodDetails: {
@@ -337,7 +337,7 @@ const styles = StyleSheet.create({
     color: '#9CA3AF',
   },
   addButton: {
-    backgroundColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
     borderRadius: 12,
     padding: 16,
     alignItems: 'center',
@@ -398,8 +398,8 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(252, 223, 3, 0.2)',
   },
   activeFilter: {
-    backgroundColor: '#FCDF03',
-    borderColor: '#FCDF03',
+    backgroundColor: '#5B5AF1',
+    borderColor: '#5B5AF1',
   },
   filterText: {
     fontSize: 14,

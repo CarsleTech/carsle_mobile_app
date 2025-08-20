@@ -1,19 +1,19 @@
 // app/(auth)/login.tsx
+import { useAuth } from '@/contexts/AuthContext';
+import { Ionicons } from '@expo/vector-icons';
+import { Link } from 'expo-router';
 import React, { useState } from 'react';
 import {
-  View,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  Alert,
-  StyleSheet,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
+  View,
 } from 'react-native';
-import { Link } from 'expo-router';
-import { useAuth } from '@/contexts/AuthContext';
-import { Ionicons } from '@expo/vector-icons';
 
 export default function LoginScreen() {
   const [formData, setFormData] = useState({
@@ -22,6 +22,7 @@ export default function LoginScreen() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const { login } = useAuth();
 
   const validateForm = () => {
@@ -91,7 +92,7 @@ export default function LoginScreen() {
         <View style={styles.header}>
           <View style={styles.logoContainer}>
             <View style={styles.logo}>
-              <Ionicons name="car-outline" size={24} color="#030712" />
+                <Ionicons name="chatbubbles-outline" size={40} color="#030712" />
             </View>
             <Text style={styles.brandName}>Carsle</Text>
           </View>
@@ -130,10 +131,16 @@ export default function LoginScreen() {
                 placeholderTextColor="#6B7280"
                 value={formData.password}
                 onChangeText={(value) => handleInputChange('password', value)}
-                secureTextEntry
+                secureTextEntry={!passwordVisible}
                 returnKeyType="done"
                 onSubmitEditing={handleLogin}
               />
+              <TouchableOpacity
+                onPress={() => setPasswordVisible(!passwordVisible)}
+                style={{ position: 'absolute', right: 15 }}
+              >
+                <Ionicons name={passwordVisible ? "eye-off-outline" : "eye-outline"} size={20} color="#6B7280" />
+              </TouchableOpacity>
             </View>
             {errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
           </View>

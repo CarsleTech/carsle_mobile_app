@@ -24,7 +24,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Create axios instance with base configuration
 const api = axios.create({
-  baseURL: 'http://carsle-server.com:30080/api',
+  baseURL: 'http://34.171.178.125/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -91,9 +91,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const validateToken = async (token: string): Promise<User> => {
     try {
-      const response = await api.get('/validate-token');
+      const response = await api.post('/auth/validate-token', { token });
+      router.replace('/(tabs)');
       return response.data;
     } catch (error) {
+      router.replace('/(auth)/login')
       throw new Error('Token validation failed');
     }
   };
@@ -108,6 +110,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const { token, user: userData } = response.data;
       
       await AsyncStorage.setItem('userToken', token);
+      await AsyncStorage.setItem('user', JSON.stringify(userData));
       console.log(token)
       setUser(userData);
       router.replace('/(tabs)');
@@ -148,11 +151,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = async () => {
     try {
       // Optional: Call logout endpoint to invalidate token on server
-      await api.post('/auth/logout').catch(() => {
-        // Ignore errors when calling logout endpoint
-      });
+      // await api.post('/auth/logout').catch(() => {
+      //   // Ignore errors when calling logout endpoint
+      // });
       
       await AsyncStorage.removeItem('userToken');
+      await AsyncStorage.removeItem('user');
       setUser(null);
       router.replace('/(auth)/login');
     } catch (error) {

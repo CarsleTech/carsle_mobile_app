@@ -1,7 +1,6 @@
 // app/index.tsx
-import { useEffect } from 'react';
-import { Redirect } from 'expo-router';
 import { useAuth } from '@/contexts/AuthContext';
+import { Redirect } from 'expo-router';
 
 export default function Index() {
   const { user, isLoading } = useAuth();
@@ -10,9 +9,9 @@ export default function Index() {
     return null; // or loading screen
   }
 
-  if (user) {
-    return <Redirect href="/(tabs)" />;
-  }
-
-  return <Redirect href="/(auth)/login" />;
+  // if (user) {
+  //   return <Redirect href="/(tabs)" />;
+  // }
+return <Redirect href="/(tabs)" />;
+  // return <Redirect href="/(auth)/login" />;
 }

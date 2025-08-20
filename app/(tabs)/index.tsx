@@ -1,46 +1,55 @@
-import React, { useState, useEffect } from 'react';
+import { useAuth } from '@/contexts/AuthContext';
 import axios from 'axios';
+import { router } from 'expo-router';
+import { Clock, DollarSign, Search, Star, Users } from 'lucide-react-native';
+import React, { useEffect, useState } from 'react';
 import {
-  View,
-  Text,
-  TextInput,
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
-  ActivityIndicator,
+    ActivityIndicator,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from 'react-native';
-import { Search, Star, Clock, DollarSign, Users } from 'lucide-react-native';
 
 const Explore = () => {
   const [experts, setExperts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const expertsResponse = await axios.get('http://carsle-server.com:30081/api/users');
+        const expertsResponse = await axios.get('http://34.10.13.252/api/users');
         console.log("Experts Response:", expertsResponse.data.data.users);
         
-        // Transform the API data to match our component's expected format
-        const transformedExperts = expertsResponse.data.data.users.map((user, index) => ({
-          id: user.id,
-          name: user.fullName,
-          specialty: 'Expert', // You might want to add this field to your API
-          initials: getInitials(user.fullName),
-          rating: 4.5 + (Math.random() * 0.5), // Random rating between 4.5-5.0
-          reviews: Math.floor(Math.random() * 200) + 50, // Random reviews 50-250
-          responseTime: '< ' + (Math.floor(Math.random() * 15) + 5) + ' min',
-          price: (Math.random() * 3 + 2).toFixed(2), // Random price $2-5
+        // Filter out current user and transform the API data
+        const filteredUsers = expertsResponse.data.data.users.filter(apiUser => 
+          user && apiUser.id !== user.id
+        );
+        
+        const transformedExperts = filteredUsers.map((apiUser, index) => ({
+          id: apiUser.id,
+          name: apiUser.fullName,
+          specialty: apiUser.specialization || 'General Expert',
+          initials: getInitials(apiUser.fullName),
+          rating: apiUser.rating || 0,
+          reviews: apiUser.totalRatings || 0,
+          responseTime: apiUser.isAvailable ? '< 5 min' : 'Offline',
+          price: apiUser.hourlyRate ? (apiUser.hourlyRate / 60).toFixed(2) : '0.00', // Convert hourly to per minute
           bgColor: getRandomColor(index),
-          online: Math.random() > 0.3, // 70% chance of being online
-          username: user.username,
-          email: user.email,
-          verified: user.verified,
-          phoneVerified: user.phoneVerified,
-          createdAt: user.createdAt,
-          balance: user.balance,
+          online: apiUser.isAvailable || false,
+          username: apiUser.username,
+          email: apiUser.email,
+          verified: apiUser.verified || false,
+          phoneVerified: apiUser.phoneVerified || false,
+          createdAt: apiUser.createdAt,
+          role: apiUser.role,
+          bio: apiUser.bio,
+          timezone: apiUser.timezone,
         }));
         
         setExperts(transformedExperts);
@@ -54,7 +63,7 @@ const Explore = () => {
     };
     
     fetchData();
-  }, []);
+  }, [user]);
 
   // Helper function to get initials from full name
   const getInitials = (fullName) => {
@@ -77,11 +86,22 @@ const Explore = () => {
     { name: 'Tech', active: false, icon: Users },
   ];
 
-  // Get most booked experts (first 3 for now)
-  const mostBookedExperts = experts.slice(0, 3);
+  // Get most booked experts (users with highest ratings/reviews)
+  const mostBookedExperts = experts
+    .filter(expert => expert.rating > 0 || expert.reviews > 0)
+    .sort((a, b) => (b.rating * b.reviews) - (a.rating * a.reviews))
+    .slice(0, 3);
+
+  const navigateToExpert = (expert) => {
+    console.log('Navigate to expert:', expert);
+    router.push({
+        pathname: '/expertDetail',
+       params: { expertId: expert.id },
+    });
+  };
 
   const ExpertCard = ({ expert, isCompact = false }) => (
-    <View style={[styles.card, isCompact && styles.compactCard]}>
+    <TouchableOpacity onPress={() => navigateToExpert(expert)} style={[styles.card, isCompact && styles.compactCard]}>
       <View style={styles.cardRow}>
         <View style={styles.initialsWrap}>
           <View style={[styles.initials, { backgroundColor: expert.bgColor }]}>
@@ -106,30 +126,34 @@ const Explore = () => {
           <Text style={styles.specialty}>{expert.specialty}</Text>
           <Text style={styles.username}>@{expert.username}</Text>
           <View style={styles.infoRow}>
-            <View style={styles.inlineIconText}>
-              <Star size={12} color="#FCDF03" fill="#FCDF03" />
-              <Text style={styles.rating}>{expert.rating.toFixed(1)}</Text>
-              <Text style={styles.reviews}>({expert.reviews})</Text>
-            </View>
+            {expert.rating > 0 && (
+              <View style={styles.inlineIconText}>
+                <Star size={12} color="#FCDF03" fill="#FCDF03" />
+                <Text style={styles.rating}>{expert.rating.toFixed(1)}</Text>
+                <Text style={styles.reviews}>({expert.reviews})</Text>
+              </View>
+            )}
             {expert.responseTime && (
               <View style={styles.inlineIconText}>
                 <Clock size={12} color="#6B7280" />
                 <Text style={styles.responseTime}>{expert.responseTime}</Text>
               </View>
             )}
-            <View style={styles.inlineIconText}>
-              <DollarSign size={12} color="#030712" />
-              <Text style={styles.price}>${expert.price}/min</Text>
-            </View>
+            {parseFloat(expert.price) > 0 && (
+              <View style={styles.inlineIconText}>
+                <DollarSign size={12} color="#030712" />
+                <Text style={styles.price}>${expert.price}/min</Text>
+              </View>
+            )}
           </View>
         </View>
-        {!isCompact && (
+        {/* {!isCompact && (
           <TouchableOpacity style={styles.followButton}>
             <Text style={styles.followText}>Follow</Text>
           </TouchableOpacity>
-        )}
+        )} */}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   if (loading) {
@@ -207,9 +231,13 @@ const Explore = () => {
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>All Experts ({experts.length})</Text>
-        {experts.map((expert) => (
-          <ExpertCard key={expert.id} expert={expert} />
-        ))}
+        {experts.length > 0 ? (
+          experts.map((expert) => (
+            <ExpertCard key={expert.id} expert={expert} />
+          ))
+        ) : (
+          <Text style={styles.noExpertsText}>No experts available at the moment.</Text>
+        )}
       </View>
     </ScrollView>
   );
@@ -217,12 +245,10 @@ const Explore = () => {
 
 const styles = StyleSheet.create({
   container: {
-    //  backgroundColor: '#F8F9FA',
     backgroundColor: '#030712', // Dark background
     flex: 1,
   },
   header: {
-    // backgroundColor: '#FFFFFF',
     backgroundColor: '#030712', // Dark background
     paddingHorizontal: 16,
     paddingTop: 20,
@@ -423,24 +449,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F9FAFB',
+    backgroundColor: '#030712',
   },
   loadingText: {
     marginTop: 16,
     fontSize: 16,
-    color: '#030712',
+    color: '#E5E7EB',
     fontWeight: '500',
   },
   errorContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F9FAFB',
+    backgroundColor: '#030712',
     padding: 20,
   },
   errorText: {
     fontSize: 16,
-    color: '#030712',
+    color: '#E5E7EB',
     textAlign: 'center',
     marginBottom: 20,
     fontWeight: '500',
@@ -456,6 +482,13 @@ const styles = StyleSheet.create({
   retryText: {
     color: '#030712',
     fontWeight: '600',
+  },
+  noExpertsText: {
+    fontSize: 14,
+    color: '#6B7280',
+    textAlign: 'center',
+    marginTop: 20,
+    fontStyle: 'italic',
   },
 });
 

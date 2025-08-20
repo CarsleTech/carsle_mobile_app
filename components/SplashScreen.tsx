@@ -58,10 +58,11 @@ export default function SplashScreen({ onFinish }: SplashScreenProps) {
         ]}
       >
         <View style={styles.logo}>
-          <Ionicons name="car-outline" size={40} color="#030712" />
+          {/* <Ionicons name="message-outline" size={40} color="#030712" /> */}
+          <Ionicons name="chatbubbles-outline" size={40} color="#030712" />
         </View>
         <Text style={styles.brandName}>Carsle</Text>
-        <Text style={styles.tagline}>Your Car, Your Way</Text>
+        {/* <Text style={styles.tagline}>Your Car, Your Way</Text> */}
       </Animated.View>
       
       <Animated.View style={[styles.loadingContainer, { opacity: fadeAnim }]}>
